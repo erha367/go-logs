@@ -12,6 +12,7 @@ import (
 func main() {
 	defer database.CloseDatabases()
 	application.Bootstrap()
+	database.InitDatabases() //初始化DB
 	gin.SetMode(config.Mode())
 	apiRouter := router.ApiRouter()
 	err := apiRouter.Run()
