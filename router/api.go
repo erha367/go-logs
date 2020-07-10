@@ -1,9 +1,9 @@
 package router
 
 import (
-	"gin-example/application/controller/DemoController"
-	"gin-example/router/middleware"
 	"github.com/gin-gonic/gin"
+	"eeo_webcast_service/application/controller/DemoController"
+	"eeo_webcast_service/router/middleware"
 )
 
 func ApiRouter() (router *gin.Engine) {

@@ -1,9 +1,9 @@
 package DemoController
 
 import (
-	"gin-example/application/entity/form"
-	"gin-example/application/library"
-	demoService "gin-example/application/service/demo"
+	"eeo_webcast_service/application/entity/form"
+	"eeo_webcast_service/application/library"
+	demoService "eeo_webcast_service/application/service/demo"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,12 +19,5 @@ func List(context *gin.Context) {
 }
 
 func Create(context *gin.Context) {
-	var demo form.DemoSearch
-	err := context.ShouldBind(&demo)
-	if err != nil {
-		library.FailJson(context, err)
-	} else {
-		id := demoService.CreateDemo(demo)
-		library.OkJson(context, id)
-	}
+
 }

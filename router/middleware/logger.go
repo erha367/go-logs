@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"gin-example/application/library"
+	"eeo_webcast_service/application/library"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"time"

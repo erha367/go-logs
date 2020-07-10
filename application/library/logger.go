@@ -1,7 +1,7 @@
 package library
 
 import (
-	"gin-example/config"
+	"eeo_webcast_service/config"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

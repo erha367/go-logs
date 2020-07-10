@@ -1,37 +1,20 @@
 package demo
 
 import (
-	"gin-example/application/database"
-	"gin-example/application/entity/form"
-	"gin-example/application/library"
-	"gin-example/application/models"
-	"go.uber.org/zap"
+	"eeo_webcast_service/application/database"
+	"eeo_webcast_service/application/entity/form"
+	"eeo_webcast_service/application/model"
 )
 
 //创建demo
-func CreateDemo(demo form.DemoSearch) uint {
-	tx := database.Begin("demos")
-	demoModel := models.Demo{
-		Name: demo.Name,
-		Age:  demo.Age,
-	}
+func CreateDemo(demo form.DemoSearch) {
 
-	tx.Create(&demoModel)
-	library.Logger.Info("find the demo ", zap.Uint("insertId", demoModel.ID))
-	tx.Commit()
-	return demoModel.ID
 }
 
 //检索demo
-func Search(ds form.DemoSearch) (users []models.Demo) {
-	dbDemos := database.GetSlaveDB("demos")
-	if ds.Name != "" {
-		dbDemos = dbDemos.Where("name = ?", ds.Name)
-	}
-
-	if ds.Age >= 0 {
-		//dbDemos = dbDemos.Where("age > ?", ds.Age)
-	}
-	dbDemos.Find(&users)
-	return
+func Search(ds form.DemoSearch) model.EeoWebcastCastInfo{
+	var info model.EeoWebcastCastInfo
+	db := database.GetSlaveDB("eo_oslive")
+	db.Where("account = ?",ds.Name).First(&info)
+	return info
 }

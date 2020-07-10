@@ -1,12 +1,12 @@
 package database
 
 import (
-	"gin-example/application"
-	"gin-example/application/models"
+	"eeo_webcast_service/application"
+	"eeo_webcast_service/application/model"
 )
 
 func Migrate() {
 	application.Bootstrap()
 	db := GetMasterDB("demos")
-	db.AutoMigrate(&models.Demo{})
+	db.AutoMigrate(&model.Demo{})
 }

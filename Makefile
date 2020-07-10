@@ -5,4 +5,4 @@ go_build:
 go_test:
 	echo "test"
 start:
-	./gin-example
+	./eeo_webcast_service

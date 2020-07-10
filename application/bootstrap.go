@@ -2,8 +2,8 @@ package application
 
 import (
 	"flag"
-	"gin-example/application/library"
-	"gin-example/config"
+	"eeo_webcast_service/application/library"
+	"eeo_webcast_service/config"
 )
 
 func Bootstrap() {

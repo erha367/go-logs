@@ -1,11 +1,12 @@
 package database
 
 import (
+	"eeo_webcast_service/application/library"
+	"eeo_webcast_service/config"
 	"fmt"
-	"gin-example/application/library"
-	"gin-example/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/prometheus/common/log"
 	"go.uber.org/zap"
 )
 
@@ -26,7 +27,7 @@ func (log *databaseLogger) Print(v ...interface{}) {
 			zap.String("SQL", v[3].(string)),
 			zap.String("position", position.(string)))
 	} else {
-		library.Logger.Info("数据库日志：", zap.String("log", v[3].(string)))
+		library.Logger.Error("数据库错误：", zap.String("log", fmt.Sprintf("%v",v[2])))
 	}
 }
 
@@ -53,8 +54,10 @@ func InitDatabases() {
 			conn.LogMode(true)
 			conn.SetLogger(&databaseLogger{})
 		}
+		conn.SingularTable(true)
 		databaseContainer[database.Name+"."+database.Type] = conn
 	}
+	log.Info(`数据库连接成功`)
 }
 
 //获取数据库主库链接
