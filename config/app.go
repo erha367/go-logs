@@ -23,6 +23,8 @@ type app struct {
 	Domain    string    `json:"domain"`
 	Databases databases `json:"databases"`
 	Logger    logger    `json:"logger"`
+	Redis     redis     `json:"redis"`
+	Kafka     kafka     `json:"kafka"`
 }
 
 type databases struct {
@@ -45,6 +47,18 @@ type logger struct {
 	Path      string `json:"path"`
 	InfoFile  string `json:"info_file"`
 	ErrorFile string `json:"error_file"`
+}
+
+type redis struct {
+	Host     string `json:"host"`
+	Password string `json:"password"`
+	Db       int    `json:"db"`
+}
+
+type kafka struct {
+	Brokers string `json:"brokers"`
+	Topic   string `json:"topic"`
+	GroupId string `json:"groupId"`
 }
 
 func init() {

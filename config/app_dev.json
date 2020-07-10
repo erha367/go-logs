@@ -1,13 +1,13 @@
 {
-    "name": "sample",
-    "domain": "sample.jiaoyi.ke.com",
+    "name": "gowebcast",
+    "domain": "webcast.eeocn.com",
     "databases": {
         "driver": "mysql",
         "list": [
             {
-                "name": "demos",
-                "username": "homestead",
-                "password": "secret",
+                "name": "eo_oslive",
+                "username": "root",
+                "password": "123456",
                 "port": 3306,
                 "host": "127.0.0.1",
                 "type": "master",
@@ -15,9 +15,9 @@
                 "maxOpenConnections": 10
             },
             {
-                "name": "demos",
-                "username": "homestead",
-                "password": "secret",
+                "name": "eo_oslive",
+                "username": "root",
+                "password": "123456",
                 "port": 3306,
                 "host": "127.0.0.1",
                 "type": "slave",
@@ -27,8 +27,18 @@
         ]
     },
     "logger": {
-        "path": "/tmp/www/applogs/example.jiaoyi.ke.com/",
-        "infoFile": "info",
-        "errorFile": "error"
+        "path": "./log/",
+        "infoFile": "gowebcast-info",
+        "errorFile": "gowebcast-error"
+    },
+    "redis": {
+        "host": "127.0.0.1:6379",
+        "password": "",
+        "db": 0
+    },
+    "kafka": {
+        "brokers": "10.0.15.131:9092,10.0.15.132:9092,10.0.15.133:9092",
+        "topic": "ys-t1",
+        "groupId": "cast1"
     }
 }
