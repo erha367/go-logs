@@ -1,0 +1,23 @@
+base:
+    is_dev: false
+mysql_info:
+    host: 127.0.0.1
+    port: 3306
+    username: root
+    password: root
+    database: test
+out_dir: ./model
+url_tag: json
+language: 中 文
+db_tag: gorm
+simple: false
+is_web_tag: false
+is_web_tag_pk_hidden: false
+singular_table: true
+is_foreign_key: true
+is_out_sql: false
+is_out_func: true
+is_gui: false
+is_table_name: false
+is_null_to_point: false
+
